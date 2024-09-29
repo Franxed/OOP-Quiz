@@ -13,5 +13,5 @@ for question in question_data:
 
 quiz_brain = QuizBrain(question_bank)
 
-quiz_brain.next_question()
-
+while quiz_brain.still_has_question():
+    quiz_brain.next_question()
