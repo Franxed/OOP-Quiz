@@ -11,6 +11,7 @@ for question in question_data:
     question_model = Question(text, answer)
     question_bank.append(question_model)
 
+quiz_brain = QuizBrain(question_bank)
 
-
+quiz_brain.next_question()
 

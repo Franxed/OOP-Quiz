@@ -11,13 +11,15 @@ class QuizBrain:
         if self.question_number < len(self.question_list):
             current_question = self.question_list[self.question_number]
             self.question_number += 1
-            user_answer = input(f"Q.{self.question_number}{current_question.text} (True/False): ")
-            self.check_answer(current_question.answer, user_answer)
+            user_answer = input(f"Q.{self.question_number} : {current_question.text} (True/False): ").strip()
+            self.check_answer(user_answer, current_question)
+            return True
         else:
             print(f"Quiz completed!\n{self.score}/{len(self.question_list)}")
+            return False
 
     def check_answer(self, user_answer, current_question):
-        if user_answer.lower() == current_question.lower:
+        if user_answer.lower() == current_question.answer.lower():
             self.score += 1
             print("Correct!")
 
